@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+   
+
+</head>
+<body>
+
+    <h1>
+        Send anonymous email in 3 steps <img class="icon" src="{% static 'icon.png' %}"/>
+    </h1>
+
+
+    <h2>
+        <span id='first-step'>1. Who do you want to send an email to?</span>
+    </h2>
+
+    <h2>
+        <span id='second-step'>2. Write subject & message</span>
+    </h2>
+
+    <h2>
+        <span id='third-step'>3. Send email</span>
+    </h2>
+    
+
+<form action="." method="post">
+    {% csrf_token %}
+
+    <div class="to-field">
+        <label for="{{ form.to }}to:</label>
+        {{ form.to }}
+    </div>
+
+    <div class="subject-field">
+        <label for="{{ form.subject }}subject:</label>
+        {{ form.subject }}
+    </div>
+
+    <div class="message-field">
+        <label for="{{ form.message }}message:</label>
+        {{ form.message }}
+    </div>
+
+    <input type="submit" value="Send">
+
+</form>
+
+</body>
+</html>
